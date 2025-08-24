@@ -8,14 +8,10 @@ A compact, readable headless e‑commerce API featuring catalog, guest-first car
 # 1) Install
 npm i
 
-# 2) Configure
-cp .env.example .env
-# edit MONGODB_URI if needed
-
-# 3) Seed sample data
+# 2) Seed sample data
 npm run seed
 
-# 4) Run in dev
+# 3) Run in dev
 npm run dev
 # or build + start
 npm run build && npm start
