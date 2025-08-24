@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: Headless E‑Commerce API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: OK
+  /products:
+    get:
+      summary: List products
+      responses:
+        '200':
+          description: Product list
+  /products/{id}:
+    get:
+      summary: Get product by id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+        '404': { description: Not found }
+  /carts:
+    post:
+      summary: Create a guest cart
+      responses:
+        '201': { description: Created }
+  /carts/me:
+    get:
+      summary: Get current cart by token
+      parameters:
+        - in: header
+          name: Authorization
+          required: false
+          schema: { type: string }
+        - in: query
+          name: cartToken
+          required: false
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+        '404': { description: Not found }
+  /carts/items:
+    post:
+      summary: Add item to cart
+      responses:
+        '200': { description: OK }
+  /carts/items/{itemId}:
+    patch:
+      summary: Update cart item quantity
+      parameters:
+        - in: path
+          name: itemId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Remove cart item
+      parameters:
+        - in: path
+          name: itemId
+          required: true
+          schema: { type: string }
+      responses:
+        '204': { description: Deleted }
+  /carts/apply-promo:
+    post:
+      summary: Apply a promo code to the cart
+      responses:
+        '200': { description: OK }
+  /carts/me/totals:
+    get:
+      summary: Compute totals for current cart
+      responses:
+        '200': { description: OK }
+  /checkout:
+    post:
+      summary: Create order from current cart
+      responses:
+        '201': { description: Created }
+  /orders:
+    get:
+      summary: List orders
+      responses:
+        '200': { description: OK }
+  /orders/{id}:
+    get:
+      summary: Get order
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
