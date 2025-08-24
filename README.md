@@ -1,4 +1,4 @@
-# B5 Headless E‑Commerce Backend (Node.js + TypeScript + MongoDB)
+# Headless E‑Commerce Backend (Node.js + TypeScript + MongoDB)
 
 A compact, readable headless e‑commerce API featuring catalog, guest-first carts, promos, checkout to orders, input validation (Zod), consistent errors, request logging, OpenAPI docs, tests, and a seeder.
 
